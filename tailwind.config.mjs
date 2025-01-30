@@ -8,9 +8,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        darkBlue: "#0B0D17",
+        lightGray: "#D0D6F9",
+        darkGray: "#707070",
+        midGray: "#979797",
+        white: "#FFFFFF",
       },
+      fontFamily:{
+        barlow: ["var(--font-barlow)", "sans-serif"],
+        bellefair: ["var(--font-bellefair)", "serif"],
+      }
     },
   },
   plugins: [],
