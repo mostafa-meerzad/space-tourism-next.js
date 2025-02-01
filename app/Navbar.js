@@ -1,16 +1,17 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
-import { hamburger, logo } from "./assets";
+import React, { useEffect, useState } from "react";
+import { close, hamburger, logo } from "./assets";
 import Link from "next/link";
 import { nav } from "./constants";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center py-8 px-8 md:py-0 md:pr-0 lg:py-8 lg:px-12 lg:pr-0 text-white max-w-screen-2xl mx-auto">
+    <nav className="flex justify-between items-center py-8 px-8 md:py-0 md:pr-0 lg:py-8 lg:px-12 lg:pr-0 text-white max-w-screen-2xl mx-auto ">
       <Link href="/">
         <Image src={logo} alt="space tourism" width={40} height={40} />
       </Link>
@@ -36,8 +37,42 @@ const Navbar = () => {
         ))}
       </ul>
 
+      {/* Mobile menu */}
 
+      <div
+        className="absolute top-12 right-8 z-50 md:hidden"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <Image
+          src={isMenuOpen ? close : hamburger}
+          alt="close menu"
+          width={20}
+          height={20}
+        />
+      </div>
 
+      <ul
+        className={`${
+          isMenuOpen ? "flex" : "hidden"
+        } flex-col items-start justify-start gap-5 absolute pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
+      >
+        {nav.map((item) => (
+          <Link
+            key={item.label}
+            href={item.url}
+            className="hover:text-lightGray w-full"
+          >
+            <li key={item.label} className="relative">
+              {item.label}
+              <div
+                className={`absolute w-1 h-full rounded-lg bg-lightGray top-0 right-0  ${
+                  pathname === item.url ? "block" : "hidden"
+                }`}
+              />
+            </li>
+          </Link>
+        ))}
+      </ul>
     </nav>
   );
 };
