@@ -1,15 +1,44 @@
 "use client"
-import { useRouter } from 'next/navigation'
-import React from 'react'
+
+import { useState } from "react";
+import { home } from "./constants";
 
 const Home = () => {
-  const router = useRouter()
-  const { pathname } = router
-  console.log('pathname in home', pathname);
-  
-  return (
-    <div>Home</div>
-  )
-}
+  const [isBtnClicked, setIsBtnClicked] = useState(false);
 
-export default Home
+  return (
+    <section className="flex flex-col justify-between items-center gap-28 py-20 text-white max-h-max">
+      <div className="flex flex-col items-center">
+        <h1 className="text-center">
+          <span className="text-xl font-barlow uppercase tracking-widest text-lightGray  ">
+            {home.title}
+          </span>
+          <br />
+          <br />
+          <span className="text-9xl leading-none uppercase font-sans">
+            {home.name}
+          </span>
+        </h1>
+        <p className=" w-2/3 sm:max-w-md text-center text-md text-lightGray leading-7 font-barlow font-medium">
+          {home.description}
+        </p>
+      </div>
+
+      <div className="flex justify-center items-center  ">
+        <button
+          onClick={() => setIsBtnClicked(!isBtnClicked)}
+          className="h-48 w-48 rounded-full border bg-white text-darkBlue text-2xl font-sans uppercase z-10"
+        >
+          {home.button}
+        </button>
+        <div
+          className={` w-72 h-72 border absolute rounded-full bg-lightGray ${
+            isBtnClicked ? "opacity-35" : "opacity-0"
+          }`}
+        ></div>
+      </div>
+    </section>
+  );
+};
+
+export default Home;
