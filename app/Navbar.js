@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center py-8 px-8 md:py-0 md:pr-0 lg:py-8 lg:px-12 lg:pr-0 text-white max-w-screen-2xl mx-auto ">
+    <nav className="absolute top-0 left-0 right-0 flex justify-between items-center py-8 px-8 md:pt-2 md:pr-0 lg:py-8 lg:px-12 lg:pr-0 text-white max-w-screen-2xl mx-auto ">
       <Link href="/">
         <Image src={logo} alt="space tourism" width={40} height={40} />
       </Link>
