@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
       <body
-        className={`${barlow.variable} ${bellefair.variable} bg-homeMobile sm:bg-homeTablet lg:bg-homeDesktop bg-no-repeat bg-cover bg-center min-h-screen max-w-screen-2xl mx-auto`}
+        className={`${barlow.variable} ${bellefair.variable} min-h-screen max-w-screen-2xl mx-auto relative`}
       >
         <Navbar />
         {children}

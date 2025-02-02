@@ -7,10 +7,10 @@ const Home = () => {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
 
   return (
-    <section className="flex flex-col lg:flex-row justify-between lg:justify-around items-center gap-28 md:gap-36 lg:gap-0 lg:px-10  py-20 lg:py-32 lg:pb-20 text-white ">
-      <div className="flex flex-col items-center lg:items-start">
+    <section className="flex flex-col lg:flex-row justify-between lg:justify-around items-center gap-28 md:gap-36 lg:gap-0 pt-40 md:pt-48 py-20 lg:px-16 lg:pt-56 lg:pb-20 text-white bg-img-config home-bg-img ">
+      <div className="flex flex-col items-center lg:items-start ">
         <h1 className="text-center lg:text-start">
-          <span className="text-xl font-barlow uppercase tracking-widest text-lightGray  ">
+          <span className="text-2xl font-barlow uppercase tracking-widest text-lightGray  ">
             {home.title}
           </span>
           <br />
@@ -19,7 +19,7 @@ const Home = () => {
             {home.name}
           </span>
         </h1>
-        <p className=" w-2/3 sm:max-w-md md:max-w-2xl text-center lg:text-start text-md text-lightGray leading-7 font-barlow font-medium">
+        <p className=" w-2/3 sm:max-w-xl md:max-w-2xl  text-center lg:text-start text-md text-lightGray leading-7 font-barlow font-medium">
           {home.description}
         </p>
       </div>
