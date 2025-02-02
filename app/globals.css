@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom classes */
+
+@layer utilities {
+  .bg-img-config {
+    @apply bg-no-repeat bg-cover bg-center  min-h-screen ;
+  }
+  .home-bg-img {
+    @apply bg-homeMobile sm:bg-homeTablet lg:bg-homeDesktop;
+  }
+  .destination-bg-img {
+    @apply bg-destinationsMobile sm:bg-destinationsTablet lg:bg-destinationsDesktop;
+  }
+  .technology-bg-img {
+    @apply bg-technologyMobile sm:bg-technologyTablet lg:bg-technologyDesktop;
+  }
+  .crew-bg-img {
+    @apply bg-crewMobile sm:bg-crewTablet lg:bg-crewDesktop;
+  }
+}

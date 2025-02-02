@@ -25,11 +25,11 @@ export default {
         homeTablet: "url(/images/home/background-home-tablet.jpg)",
         homeMobile: "url(/images/home/background-home-mobile.jpg)",
         destinationsDesktop:
-          "url(/images/destinations/background-destinations-desktop.jpg)",
+          "url(/images/destinations/background-destination-desktop.jpg)",
         destinationsTablet:
-          "url(/images/destinations/background-destinations-tablet.jpg)",
+          "url(/images/destinations/background-destination-tablet.jpg)",
         destinationsMobile:
-          "url(/images/destinations/background-destinations-mobile.jpg)",
+          "url(/images/destinations/background-destination-mobile.jpg)",
         technologyDesktop:
           "url(/images/technology/background-technology-desktop.jpg)",
         technologyTablet:
