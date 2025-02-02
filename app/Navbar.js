@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { close, hamburger, logo } from "./assets";
 import Link from "next/link";
 import { nav } from "./constants";
@@ -40,7 +40,9 @@ const Navbar = () => {
       {/* Mobile menu */}
 
       <div
-        className="absolute top-12 right-8 z-50 md:hidden"
+        className={`${
+          isMenuOpen ? "fixed" : "absolute"
+        } top-12 right-8 z-50 md:hidden`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <Image
@@ -54,7 +56,7 @@ const Navbar = () => {
       <ul
         className={`${
           isMenuOpen ? "flex" : "hidden"
-        } flex-col items-start justify-start gap-5 absolute pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
+        } flex-col items-start justify-start gap-5 fixed pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
       >
         {nav.map((item) => (
           <Link
