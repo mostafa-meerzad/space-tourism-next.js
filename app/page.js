@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { home } from "./constants";
@@ -7,7 +7,7 @@ const Home = () => {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
 
   return (
-    <section className="flex flex-col justify-between items-center gap-28 py-20 text-white max-h-max">
+    <section className="flex flex-col justify-between items-center gap-28 md:gap-40 py-20 text-white">
       <div className="flex flex-col items-center">
         <h1 className="text-center">
           <span className="text-xl font-barlow uppercase tracking-widest text-lightGray  ">
@@ -19,7 +19,7 @@ const Home = () => {
             {home.name}
           </span>
         </h1>
-        <p className=" w-2/3 sm:max-w-md text-center text-md text-lightGray leading-7 font-barlow font-medium">
+        <p className=" w-2/3 sm:max-w-md md:max-w-2xl text-center text-md text-lightGray leading-7 font-barlow font-medium">
           {home.description}
         </p>
       </div>
@@ -32,7 +32,7 @@ const Home = () => {
           {home.button}
         </button>
         <div
-          className={` w-72 h-72 border absolute rounded-full bg-lightGray ${
+          className={` w-72 h-72 md:w-80 md:h-80 border absolute rounded-full bg-lightGray ${
             isBtnClicked ? "opacity-35" : "opacity-0"
           }`}
         ></div>
