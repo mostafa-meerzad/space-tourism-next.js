@@ -9,15 +9,16 @@ const DestinationLayout = ({ children }) => {
   const pathname = usePathname();
 
   return (
-    <section className=" destination-bg-img bg-img-config">
-      <div className="absolute top-44 left-0 right-0 grid grid-rows-3 grid-cols-3 px-48 text-white">
-        <h1 className="col-start-1 col-end-3 row-start-1 row-end-2 lex gap-2 font-barlow uppercase tracking-widest [word-spacing:5px] text-2xl font-medium">
+    <section className=" destination-bg-img bg-img-config z-10">
+      <div className="absolute top-32 left-0 right-0 grid justify-center  grid-cols-1 px-20 md:px-8 text-white">
+        <h1 className="flex gap-2 font-barlow uppercase tracking-widest [word-spacing:5px] text-xl font-medium">
           <span className="text-darkGray font-bold ">01</span> Pick your
           destination
         </h1>
-        <div className="row-start-2 row-end-3 col-start-1 col-end-4 h-10 "></div>
 
-        <ul className="col-start-3 col-end-4 row-start-3 row-end-4 flex gap-4 justify-between font-barlow uppercase tracking-widest ">
+        <div className=" h-64 md:h-80"></div>
+
+        <ul className=" flex gap-4 mx-auto justify-evenly font-barlow uppercase tracking-widest h-9 w-4/5 max-w-80">
           {Object.keys(destinations).map((item) => (
             <li key={item} className="relative">
               <Link href={`/destinations/${item}`}>{item}</Link>
@@ -30,6 +31,7 @@ const DestinationLayout = ({ children }) => {
           ))}
         </ul>
       </div>
+
       {children}
     </section>
   );
