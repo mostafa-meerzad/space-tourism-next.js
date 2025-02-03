@@ -1,9 +1,7 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
 const Destination = () => {
-  return (
-    <div>Destination</div>
-  )
-}
+  redirect("/destinations/moon");
+};
 
-export default Destination
+export default Destination;
