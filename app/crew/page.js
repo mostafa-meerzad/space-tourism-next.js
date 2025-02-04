@@ -1,11 +1,7 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
 const Crew = () => {
-  return (
-    <div>Crew
-    
-    </div>
-  )
-}
+  redirect("/crew/douglasHurley");
+};
 
-export default Crew
+export default Crew;

@@ -1,0 +1,35 @@
+import React from "react";
+import { crew } from "../constants";
+import Link from "next/link";
+
+const CrewLayout = ({ children }) => {
+  return (
+    <section className="grid grid-cols-2 grid-rows-2 px-10 lg:px-32 crew-bg-img bg-img-config">
+      <div className="grid grid-rows-3 grid-cols-1 gap-2 h-min col-start-1 col-end-3 row-start-1 row-end-4 text-white z-10 mt-32 ">
+        <h1 className="flex gap-2 text-xl font-medium font-barlow uppercase tracking-widest [word-spacing:5px] ">
+          <span className="text-darkGray">02</span> <span>Meet your crew</span>
+        </h1>
+
+        <div className="  h-40"></div>
+
+        <ul className="flex flex-row items-center content-center gap-4  h-max mx-auto">
+          {Object.keys(crew).map((item) => (
+            <li key={item}>
+              <Link
+                href={`/crew/${item}`}
+                title={item}
+                className="w-2 h-2 rounded-full bg-white inline-block"
+              ></Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="col-start-1 col-end-3 row-start-1 row-end-4">
+        {children}
+      </div>
+    </section>
+  );
+};
+
+export default CrewLayout;
