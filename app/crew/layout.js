@@ -10,7 +10,7 @@ const CrewLayout = ({ children }) => {
           <span className="text-darkGray">02</span> <span>Meet your crew</span>
         </h1>
 
-        <div className="  h-40"></div>
+        <div className="h-40 md:h-28"></div>
 
         <ul className="flex flex-row items-center content-center gap-4  h-max mx-auto">
           {Object.keys(crew).map((item) => (
