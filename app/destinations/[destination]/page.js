@@ -8,14 +8,14 @@ const DestinationPage = async ({ params }) => {
     destinations[destination];
 
   return (
-    <section className="flex flex-col gap-24 md:gap-32 justify-center items-center pt-44 md:pt-48 pb-10">
-      <div className=" w-52 h-52 md:w-60 md:h-60">
+    <section className="flex flex-col lg:flex-row gap-24 md:gap-24  justify-center items-center lg:grid lg:grid-cols-2 lg:gap-0">
+      <div className=" w-52 h-52 md:w-60 md:h-60 lg:h-[22rem] lg:w-[22rem] lg:col-start-1 lg:col-end-2 lg:ml-8">
         <Image src={images[destination]} alt={destination} />
       </div>
 
-      <div className="flex flex-col items-center px-8 md:px-24 text-white max-w-screen-sm md:max-w-screen-md">
+      <div className="flex flex-col items-center  text-white max-w-screen-sm md:max-w-screen-md lg:max-w-lg lg:items-start md:px-8 lg:px-0 lg:col-start-2 lg:col-end-3 ">
         <h2 className="text-7xl font-barlows uppercase font-normal">{name}</h2>
-        <p className="text-center font-barlow tracking-wide [word-spacing:2px] text-lightGray px-5">
+        <p className="text-center lg:text-start font-barlow tracking-wide [word-spacing:2px] text-lightGray ">
           {description}
         </p>
         <hr className="bg-darkGray opacity-20 w-full my-9 h-[1px]" />
