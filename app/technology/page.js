@@ -1,9 +1,7 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
 const Technology = () => {
-  return (
-    <div>Technology</div>
-  )
-}
+  redirect("/technology/launchVehicle");
+};
 
-export default Technology
+export default Technology;
