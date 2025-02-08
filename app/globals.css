@@ -5,6 +5,11 @@
 /* Custom classes */
 
 @layer utilities {
+
+  .bg-blur{
+    @apply backdrop-blur-3xl bg-gradient-to-b from-white/5 to-slate-400/5
+  }
+
   .bg-img-config {
     @apply bg-no-repeat bg-cover bg-center  min-h-screen ;
   }

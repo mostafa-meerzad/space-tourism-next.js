@@ -136,4 +136,10 @@ const technology = {
   },
 };
 
-export { home, nav, destinations, crew, technology };
+const titles = {
+  "/destinations":{num:"01", label:"Pick your destination"},
+  "/crew":{num:"02", label:"Meet your crew"},
+  "/technology":{num:"03", label:"SPACE LAUNCH 101"}
+}
+
+export { home, nav, destinations, crew, technology, titles  };
