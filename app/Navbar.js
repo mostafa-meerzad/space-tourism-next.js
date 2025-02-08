@@ -15,12 +15,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="absolute left-0 right-0 flex justify-between items-center px-8 md:pr-0 lg:px-12 lg:pr-0 text-white max-w-screen-2xl mx-auto z-50">
+      <nav className="absolute left-0 lg:top-8 right-0 flex justify-between items-center px-8 md:pr-0 text-white max-w-screen-2xl mx-auto z-50">
         <Link href="/">
           <Image src={logo} alt="space tourism" width={40} height={40} />
         </Link>
 
-        <ul className="relative justify-between items-center gap-8 px-8 lg:px-32 py-4 bg-blur font-barlow  hidden md:flex">
+        <ul className="relative justify-between items-center gap-9 px-8 lg:px-32 py-2 bg-blur font-barlow  hidden md:flex">
           <hr className="absolute right-[90%] bg-lightGray opacity-20 h-[1px] lg:w-2/3 xl:w-2/3 hidden lg:inline-block" />
 
           {nav.map((item) => (
@@ -53,7 +53,7 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <h1 className=" absolute left-0 right-0 top-28 md:top-36 lg:top-40 flex justify-center md:justify-start md:px-10 lg:px-32 gap-2 text-white text-xl font-medium font-barlow uppercase tracking-widest [word-spacing:5px]">
+      <h1 className=" absolute left-0 right-0 top-28 md:top-36 lg:top-44 flex justify-center md:justify-start md:px-10 lg:px-32 gap-2 text-white text-xl font-medium font-barlow uppercase tracking-widest [word-spacing:5px]">
         <span className="text-darkGray font-bold ">{titleNum}</span>{" "}
         {titleLabel}{" "}
       </h1>
@@ -71,7 +71,7 @@ const NavLink = ({ label, href }) => {
 
   return (
     <li
-      className={`py-5 text-lg md:text-sm tracking-widest uppercase hover:text-lightGray ${
+      className={`py-5 text-lg md:text-[1rem] tracking-widest uppercase hover:text-lightGray [word-spacing:4px] ${
         isActive && "hover:text-white"
       } w-full md:w-auto group `}
     >
