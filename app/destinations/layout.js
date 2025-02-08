@@ -8,13 +8,13 @@ import { usePathname } from "next/navigation";
 const DestinationLayout = ({ children }) => {
   return (
     <section className="destination-bg-img bg-img-config pt-1">
-      <ul className="absolute top-[27rem] md:top-[31rem] lg:top-48 flex justify-evenly lg:justify-start gap-4 mx-auto left-0 right-0 h-9  max-w-80 lg:translate-x-0 lg:left-1/2 lg:right-auto">
+      <ul className="absolute top-[27rem] md:top-[37rem] lg:top-[17rem] flex justify-evenly lg:justify-start gap-4 mx-auto left-0 right-0 h-9  max-w-80 lg:translate-x-0 lg:left-1/2 lg:right-auto">
         {Object.keys(destinations).map((item) => (
           <NavLink label={item} key={item} />
         ))}
       </ul>
 
-      <div className=" col-start-1 col-end-3 row-start-1 mt-44 md:mt-52 lg:mt-64">
+      <div className="mt-40 md:mt-56 lg:mt-72">
         {children}
       </div>
     </section>
