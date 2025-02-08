@@ -7,7 +7,6 @@ import { nav } from "./constants";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -20,24 +19,9 @@ const Navbar = () => {
         <hr className="absolute right-[90%] bg-lightGray opacity-20 h-[1px] lg:w-1/3 xl:w-2/3 hidden lg:inline-block" />
 
         {nav.map((item) => (
-          <Link
-            key={item.label}
-            href={item.url}
-            className="hover:text-lightGray"
-          >
-            <li key={item.label} className="relative">
-              {item.label}
-              <div
-                className={`absolute w-3/4 h-1 rounded-lg bg-lightGray top-11  ${
-                  pathname === item.url ? "block" : "hidden"
-                }`}
-              />
-            </li>
-          </Link>
+          <NavLink label={item.label} href={item.url} key={item.label} />
         ))}
       </ul>
-
-      {/* Mobile menu */}
 
       <div
         className={`${
@@ -59,24 +43,38 @@ const Navbar = () => {
         } flex-col items-start justify-start gap-5 fixed pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
       >
         {nav.map((item) => (
-          <Link
-            key={item.label}
-            href={item.url}
-            className="hover:text-lightGray w-full"
-          >
-            <li key={item.label} className="relative">
-              {item.label}
-              <div
-                className={`absolute w-1 h-full rounded-lg bg-lightGray top-0 right-0  ${
-                  pathname === item.url ? "block" : "hidden"
-                }`}
-              />
-            </li>
-          </Link>
+          <NavLink href={item.url} label={item.label} key={item.label} />
         ))}
       </ul>
     </nav>
   );
 };
 
+const NavLink = ({ label, href }) => {
+  const pathname = usePathname();
+
+  const isActive =
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
+
+  return (
+    <Link
+      key={label}
+      href={href}
+      className={`hover:text-lightGray ${
+        isActive && "hover:text-white"
+      } w-full md:w-auto group`}
+    >
+      <li className="relative">
+        {label}
+        <div
+          className={`absolute w-1 md:w-3/4 h-full md:h-1 rounded-lg bg-lightGray top-0 right-0 md:top-11 md:right-auto  ${
+            isActive ? "block group-hover:bg-lightGray" : "hidden"
+          } group-hover:block group-hover:bg-gray-500`}
+        />
+      </li>
+    </Link>
+  );
+};
 export default Navbar;
