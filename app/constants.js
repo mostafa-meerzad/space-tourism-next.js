@@ -142,4 +142,10 @@ const titles = {
   "/technology":{num:"03", label:"SPACE LAUNCH 101"}
 }
 
-export { home, nav, destinations, crew, technology, titles  };
+const technologyLinks = {
+  launchVehicle: {url: "/technology/launchVehicle", label: 1},
+  spaceport: {url: "/technology/spaceport", label: 2},
+  spaceCapsule: {url: "/technology/spaceCapsule", label: 3},
+}
+
+export { home, nav, destinations, crew, technology, titles, technologyLinks  };
