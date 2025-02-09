@@ -8,8 +8,8 @@ const DestinationPage = async ({ params }) => {
     destinations[destination];
 
   return (
-    <section className="flex flex-col lg:flex-row gap-24 md:gap-24 lg:gap-36  justify-center items-center pb-20">
-      <div className=" w-56 h-56 md:w-[20rem] md:h-[20rem] lg:h-[28rem]  lg:w-[28rem]">
+    <section className="flex flex-col lg:flex-row gap-24 md:gap-24 lg:gap-28  justify-center items-center pb-20">
+      <div className=" w-56 h-56 md:w-[20rem] md:h-[20rem] lg:h-[25rem]  lg:w-[25rem]">
         <Image src={images[destination]} alt={destination} />
       </div>
 
