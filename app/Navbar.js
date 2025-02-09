@@ -8,10 +8,6 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const title = Object.keys(titles).find((key) => pathname.startsWith(key));
-  const titleNum = titles[title]?.["num"];
-  const titleLabel = titles[title]?.["label"];
 
   return (
     <>
@@ -52,11 +48,6 @@ const Navbar = () => {
           ))}
         </ul>
       </nav>
-
-      <h1 className=" absolute left-0 right-0 top-28 md:top-36 lg:top-44 flex justify-center md:justify-start md:px-10 lg:px-32 gap-2 text-white text-xl font-medium font-barlow uppercase tracking-widest [word-spacing:5px]">
-        <span className="text-darkGray font-bold ">{titleNum}</span>{" "}
-        {titleLabel}{" "}
-      </h1>
     </>
   );
 };
@@ -75,7 +66,10 @@ const NavLink = ({ label, href }) => {
         isActive && "hover:text-white"
       } w-full md:w-auto group`}
     >
-      <Link href={href} className="relative py-3 md:py-4 w-full left-0 right-0 block">
+      <Link
+        href={href}
+        className="relative py-3 md:py-4 w-full left-0 right-0 block"
+      >
         {label}
         <div
           className={`absolute w-1 md:w-3/4 h-full md:h-1 rounded-lg bg-lightGray top-0 right-0 md:top-16 md:right-auto  ${
