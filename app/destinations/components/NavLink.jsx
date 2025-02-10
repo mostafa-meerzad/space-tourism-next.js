@@ -2,16 +2,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ label }) => {
+const NavLink = ({ label, href }) => {
   const pathname = usePathname();
-  const isActive = pathname === `/destinations/${label}`;
+  const isActive = pathname === href;
   return (
     <li
       className={`relative font-barlow uppercase tracking-widest text-white  ${
         isActive ? "hover:text-white" : "hover:text-gray-400"
       } group`}
     >
-      <Link href={`/destinations/${label}`}>
+      <Link href={href}>
         {label}
         <div
           className={`absolute h-[.2rem] w-3/4 rounded-lg  top-3/4 lef-0

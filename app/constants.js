@@ -136,16 +136,45 @@ const technology = {
   },
 };
 
-const titles = {
-  "/destinations":{num:"01", label:"Pick your destination"},
-  "/crew":{num:"02", label:"Meet your crew"},
-  "/technology":{num:"03", label:"SPACE LAUNCH 101"}
-}
-
 const technologyLinks = {
-  launchVehicle: {url: "/technology/launchVehicle", label: 1},
-  spaceport: {url: "/technology/spaceport", label: 2},
-  spaceCapsule: {url: "/technology/spaceCapsule", label: 3},
-}
+  launchVehicle: { url: "/technology/launchVehicle", label: 1 },
+  spaceport: { url: "/technology/spaceport", label: 2 },
+  spaceCapsule: { url: "/technology/spaceCapsule", label: 3 },
+};
 
-export { home, nav, destinations, crew, technology, titles, technologyLinks  };
+const crewLinks = {
+  douglasHurley: {
+    url: "/crew/douglasHurley",
+    label: "Douglas Hurley",
+  },
+  markShuttleworth: {
+    url: "/crew/markShuttleworth",
+    label: "Mark Shuttleworth",
+  },
+  victorGlover: {
+    url: "/crew/victorGlover",
+    label: "Victor Glover",
+  },
+  anoushehAnsari: {
+    url: "/crew/anoushehAnsari",
+    label: "Anousheh Ansari",
+  },
+};
+
+const destinationLinks = {
+  moon: { url: "/destinations/moon", label: "moon" },
+  mars: { url: "/destinations/mars", label: " mars" },
+  europa: { url: "/destinations/europa", label: "europa" },
+  titan: { url: "/destinations/titan", label: "titan" },
+};
+
+export {
+  home,
+  nav,
+  destinations,
+  crew,
+  technology,
+  technologyLinks,
+  crewLinks,
+  destinationLinks,
+};

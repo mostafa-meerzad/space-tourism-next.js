@@ -1,4 +1,4 @@
-import { destinations } from "@/app/constants";
+import { destinationLinks, destinations } from "@/app/constants";
 import Image from "next/image";
 import React from "react";
 import NavLink from "../components/NavLink";
@@ -18,8 +18,12 @@ const DestinationPage = async ({ params }) => {
 
       <div className="flex flex-col justify-center items-center lg:items-start lg:gap-8">
         <ul className="flex justify-evenly lg:justify-start gap-4 h-9  max-w-80 ">
-          {Object.keys(destinations).map((item) => (
-            <NavLink label={item} key={item} />
+          {Object.keys(destinationLinks).map((item) => (
+            <NavLink
+              label={destinationLinks[item]["label"]}
+              href={destinationLinks[item]["url"]}
+              key={destinationLinks[item]["label"]}
+            />
           ))}
         </ul>
 
