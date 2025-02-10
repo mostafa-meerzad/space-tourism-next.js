@@ -19,7 +19,7 @@ const CrewPage = async ({ params }) => {
       </div>
 
       <div className="flex flex-col justify-center items-center gap-5 lg:items-start">
-        <ul className="flex items-center content-center gap-4 w-min md:order-2">
+        <ul className="flex items-center content-center gap-1 w-min md:order-2">
           {Object.keys(crewLinks).map((item) => (
             <NavLink
               href={crewLinks[item]["url"]}

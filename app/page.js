@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { home } from "./constants";
+import { motion } from "motion/react";
 
 const Home = () => {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
@@ -24,19 +25,25 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex justify-center items-center ">
+      <motion.div
+        className="flex justify-center items-center relative"
+        whileHover="hover"
+        initial="initial"
+      >
         <button
           onClick={() => setIsBtnClicked(!isBtnClicked)}
           className="h-48 w-48 lg:h-52 lg:w-52 rounded-full border bg-white text-darkBlue text-2xl font-sans uppercase z-10"
         >
           {home.button}
         </button>
-        <div
-          className={` w-72 h-72 md:w-80 md:h-80 lg:w-[20rem] lg:h-[20rem] border absolute rounded-full bg-lightGray ${
-            isBtnClicked ? "opacity-35" : "opacity-0"
-          }`}
-        ></div>
-      </div>
+        <motion.div
+          className={`h-full w-full absolute rounded-full bg-lightGray`}
+          variants={{
+            initial: { scale: .8, opacity: 0.7 },
+            hover: { scale: 1.5, opacity: 0.7 },
+          }}
+        ></motion.div>
+      </motion.div>
     </section>
   );
 };

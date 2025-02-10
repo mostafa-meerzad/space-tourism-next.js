@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import { close, hamburger, logo } from "./assets";
 import Link from "next/link";
-import { nav, titles } from "./constants";
+import { nav } from "./constants";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,15 +39,16 @@ const Navbar = () => {
           />
         </div>
 
-        <ul
-          className={`${
-            isMenuOpen ? "flex" : "hidden"
-          } flex-col items-start justify-start gap-6 fixed pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
+        <motion.ul
+          className={`flex flex-col items-start justify-start gap-6 fixed pl-10 pt-32 right-0 top-0 h-screen w-64 md:hidden backdrop-blur-2xl backdrop-brightness-[1] backdrop-contrast-[94%]  font-barlow text-md leading-9 tracking-widest uppercase `}
+          animate={
+            isMenuOpen ? { opacity: 1, right: 0 } : { opacity: 0, right: -150 }
+          }
         >
           {nav.map((item) => (
             <NavLink href={item.url} label={item.label} key={item.label} />
           ))}
-        </ul>
+        </motion.ul>
       </nav>
     </>
   );
@@ -61,23 +63,28 @@ const NavLink = ({ label, href }) => {
       : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <li
-      className={`text-lg md:text-[1rem] tracking-widest uppercase hover:text-lightGray [word-spacing:4px] ${
-        isActive && "hover:text-white"
-      } w-full md:w-auto group`}
+    <motion.li
+      className={`text-lg md:text-[1rem] tracking-widest uppercase [word-spacing:4px] w-full md:w-auto group`}
+      whileHover="hover"
+      initial="initial"
     >
       <Link
         href={href}
         className="relative py-3 md:py-4 w-full left-0 right-0 block"
       >
         {label}
-        <div
+
+        <motion.div
           className={`absolute w-1 md:w-3/4 h-full md:h-1 rounded-lg bg-lightGray top-0 right-0 md:top-16 md:right-auto  ${
             isActive ? "block group-hover:bg-lightGray" : "hidden"
           } group-hover:block group-hover:bg-gray-500`}
+          variants={{
+            initial: { opacity: 0.7 },
+            hover: { opacity: 1 },
+          }}
         />
       </Link>
-    </li>
+    </motion.li>
   );
 };
 export default Navbar;

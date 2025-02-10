@@ -1,27 +1,36 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 
 const NavLink = ({ label, href }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
+  const parentVariants = {
+    initial: { color: "white" },
+    hover: isActive ? { color: "white" } : { color: "#9ca3af" },
+  };
+  const chileVariants = {
+    initial: isActive ? { scale: 1, backgroundColor: "white" } : { scale: 0 },
+    hover: isActive
+      ? { backgroundColor: "white" }
+      : { scale: 1, backgroundColor: "#9ca3af" },
+  };
   return (
-    <li
-      className={`relative font-barlow uppercase tracking-widest text-white  ${
-        isActive ? "hover:text-white" : "hover:text-gray-400"
-      } group`}
+    <motion.li
+      className={`relative font-barlow uppercase tracking-widest text-white`}
+      variants={parentVariants}
+      initial="initial"
+      whileHover="hover"
     >
       <Link href={href}>
         {label}
-        <div
-          className={`absolute h-[.2rem] w-3/4 rounded-lg  top-3/4 lef-0
-               bg-lightGray
-              ${
-                isActive ? "block group-hover:bg-lightGray" : "hidden"
-              } group-hover:block group-hover:bg-gray-500`}
+        <motion.div
+          className={`absolute h-[.2rem] w-3/4 rounded-lg  top-3/4 lef-0 `}
+          variants={chileVariants}
         />
       </Link>
-    </li>
+    </motion.li>
   );
 };
 
